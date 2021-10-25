@@ -3,6 +3,8 @@
 
 ## Description
 
+In this week we learned about NoSQL through mongoDB and mongoose to create database application. in this assingment we had to make a NoSQL social netework. In this social network there will be numerous user and users can create a thought which is a post. from that post other users can create a reaction which is a comment on the post. In the assinment we created all of the routes on the backend for this website. In this application the routes can be tested. In order to use theses routes tou need to create fetch request made in the public folder for javascript. The user will have of there thoughts and and the reaction schema will reside in the thoughts model which is different from sql in that post data and comment data would be in seperate tables.
+
 ## Table of Contents
   * [Installation](#installation)
   * [Usage](#usage)
@@ -17,7 +19,7 @@ After node is installed simply type “npm Install” to install all of the nece
 
 ## Usage
 
-type "npm start" to start application. Then use insomia or another api tester to test routes. the routes setup can be found in the routes/api folder in the user-routes.js and thought-routes.js file comments.
+type "npm start" to start application. Then use insomia or another api tester to test the routes. the routes setup can be found in the routes/api folder in the user-routes.js and thought-routes.js file comments.
 
 ## License
   <div style="height:300px; width:90%; overflow:auto;">
