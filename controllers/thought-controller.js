@@ -1,5 +1,6 @@
 const {User, Thought} = require('../models/index')
 
+//thought controller that contains all of the routes
 const thoughtController = {
   getAllThoughts(req, res){
     Thought.find({})
@@ -104,7 +105,7 @@ const thoughtController = {
   removeReaction({ params }, res){
     Thought.findByIdAndUpdate(
       {_id: params.id},
-      {$pull:{ reactions: params.reactionId}},
+      {$pull:{ reactions: {reactionId: params.reactionId}}},
       {new: true}
     )
     .then (db => res.json(db))
@@ -115,4 +116,5 @@ const thoughtController = {
   }
 };
 
+//exports thought controller
 module.exports = thoughtController;

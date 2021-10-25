@@ -1,3 +1,4 @@
+//a file to give all the routes in the folder
 const router = require('express').Router();
 const apiRoutes = require('./api');
 

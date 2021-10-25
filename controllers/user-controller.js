@@ -1,5 +1,6 @@
 const {User} = require('../models/index')
 
+//user controller that contains all of the routes
 const userController = {
   getAllUsers(req, res){
     User.find({})
@@ -108,5 +109,5 @@ const userController = {
     })
   }
 };
-
+//exports the user controller
 module.exports = userController;

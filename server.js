@@ -8,8 +8,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
+//imports routes
 app.use(require('./routes'));
 
+//sets up mongoose connection
 mongoose.connect('mongodb://localhost/pizza-hunt',{
   useNewUrlParser: true,
   useUnifiedTopology: true

@@ -1,5 +1,7 @@
 const { Schema, model } = require('mongoose');
+const { Thought } = require('./Thought');
 
+//user schema that sets up a user
 const userSchema = new Schema({
   username:{
     type: String,
@@ -34,14 +36,22 @@ const userSchema = new Schema({
 }
 )
 
-userSchema.virtual('freindCount').get(function(){
+//sets up a friend count for users
+userSchema.virtual('friendCount').get(function(){
   return this.friends.length;
 });
 
+//sets up a thought count for users
 userSchema.virtual("thoughtCount").get(function(){
   return this.thoughts.length;
 })
 
-const User = model('User', userSchema);
+//BONUS: deletes all of the thoughts of a user before deleting the user
+userSchema.pre("findOneAndDelete", { document: false, query: true }, async function(){
+  const account = await this.model.findOne(this.getFilter());
+  await Thought.deleteMany(({ username: account.username}))
+});
 
+//sets up user model and exports it
+const User = model('User', userSchema);
 module.exports = User;
