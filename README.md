@@ -4,6 +4,8 @@
 ## Description
 
 In this week we learned about NoSQL through mongoDB and mongoose to create database application. in this assingment we had to make a NoSQL social netework. In this social network there will be numerous user and users can create a thought which is a post. from that post other users can create a reaction which is a comment on the post. In the assinment we created all of the routes on the backend for this website. In this application the routes can be tested. In order to use theses routes tou need to create fetch request made in the public folder for javascript. The user will have of there thoughts and and the reaction schema will reside in the thoughts model which is different from sql in that post data and comment data would be in seperate tables.
+examples of user routes: https://watch.screencastify.com/v/eOZ5CkNLyDuLwFyhHIX3
+
 
 ## Table of Contents
   * [Installation](#installation)

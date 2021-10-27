@@ -1,4 +1,5 @@
 const {Schema, model, Types} = require('mongoose');
+const dateFormat = require("../utils/dateFormat")
 
 //reaction schema that sets up a reaction
 const reactionSchema = new Schema({
@@ -18,7 +19,7 @@ const reactionSchema = new Schema({
   createdAt:{
     type: Date,
     default: Date.now,
-    get: createdAtVal => dateFormat(createdAtVal)
+    get: (createdAtVal) => dateFormat(createdAtVal)
   }
 },
 {
@@ -39,7 +40,7 @@ const thoughtSchema = new Schema({
   createdAt:{
     type: Date,
     default:  Date.now,
-    get: createdAtVal => dateFormat(createdAtVal)
+    get: (createdAtVal) => dateFormat(createdAtVal)
   },
   username:{
     type: String,
@@ -48,7 +49,7 @@ const thoughtSchema = new Schema({
   reactions: [reactionSchema]
 },
 {
-  toJson:{
+  toJSON:{
     virtuals: true,
     getters: true
   },
@@ -57,9 +58,9 @@ const thoughtSchema = new Schema({
 
 //sets up a reaction count for thoughts
 thoughtSchema.virtual('reactionCount').get(function(){
-  return this.reactions.length();
+  return this.reactions.length;
 });
 
 //sets up thought model and exports it
 const Thought = model("Thought", thoughtSchema);
-module.exports = Thought
+module.exports = Thought;
