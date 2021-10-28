@@ -47,12 +47,12 @@ userSchema.virtual("thoughtCount").get(function(){
 })
 
 //BONUS: deletes all of the thoughts of a user before deleting the user
-// userSchema.pre("findOneAndDelete", { document: false, query: true }, async function(){
-//   const account = await this.model.findOne(this.getFilter());
-//   console.log(Thought)
-//   console.log(User)
-//   await Thought.deleteMany({ username: account.username})
-// });
+userSchema.pre("findOneAndDelete", { document: false, query: true }, async function(){
+  const account = await this.model.findOne(this.getFilter());
+  console.log(Thought)
+  console.log(User)
+  await Thought.deleteMany({ username: account.username})
+});
 
 //sets up user model and exports it
 const User = model('User', userSchema);
